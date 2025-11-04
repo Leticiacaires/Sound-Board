@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(161, 100, 223);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+   .btn {
+      position: relative;
+      padding: 1rem 2.5rem;
+      color: #fff;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      background-color: rebeccapurple;
+      margin: 1rem;
+      cursor: pointer;
+      overflow: hidden;
+      transition: color 0.3s ease;
+      z-index: 1;
+    }
+
+    /* Bordas com brilho contido */
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      padding: 2px; /* espessura da borda */
+      background: linear-gradient(90deg, #6c63ff, #9b59b6, #6c63ff);
+      background-size: 300%;
+      mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: destination-out;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    /* Efeito só dentro do botão */
+    .btn:hover::before {
+      opacity: 1;
+      animation: brilho 2s linear infinite;
+    }
+
+    /* Animação do brilho */
+    @keyframes brilho {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .btn:hover {
+      color: #e0d4fc;
+    }
+
+    
+
